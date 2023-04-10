@@ -8,12 +8,12 @@
   <tbody>
   <tr *ngFor="let student of students; index as studentIndex"
       (click)="onSelect(student)"
-      [class.table-active]="student === selectedStudent">
+      [class.table-active]="student === selectedStudent"
+      [routerLink]="student.jmbag"
+  >
     <td>{{studentIndex}}</td>
     <td>{{student.jmbag}}</td>
     <td>{{student.numberOfECTS}}</td>
   </tr>
   </tbody>
 </table>
-
-<app-student-details [student]="selectedStudent"></app-student-details>

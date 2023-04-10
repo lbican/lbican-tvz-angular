@@ -13,4 +13,10 @@ export class StudentService {
   getStudents(): Observable<Student[]>{
     return of(MOCK_STUDENTS);
   }
+
+  getStudent(jmbag: string): Observable<Student | undefined>{
+    return of(MOCK_STUDENTS.find((st) => {
+      return st.jmbag === jmbag;
+    }))
+  }
 }
