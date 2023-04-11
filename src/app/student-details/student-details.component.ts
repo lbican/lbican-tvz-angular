@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Student} from "../models/student";
+import {StudentDTO} from "../models/studentDTO";
 import {ActivatedRoute} from "@angular/router";
 import {StudentService} from "../services/student.service";
 
@@ -8,7 +8,7 @@ import {StudentService} from "../services/student.service";
   templateUrl: './student-details.component.html',
 })
 export class StudentDetailsComponent implements OnInit{
-  student: Student | undefined;
+  student: StudentDTO | undefined;
 
   constructor(private route: ActivatedRoute, private studentService: StudentService) { }
 

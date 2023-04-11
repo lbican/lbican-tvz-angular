@@ -4,6 +4,7 @@
   <th>#</th>
   <th>JMBAG</th>
   <th>ECTS</th>
+  <th>Action</th>
   </thead>
   <tbody>
   <tr *ngFor="let student of students; index as studentIndex"
@@ -14,6 +15,38 @@
     <td>{{studentIndex}}</td>
     <td>{{student.jmbag}}</td>
     <td>{{student.numberOfECTS}}</td>
+    <td><button class="btn btn-danger" (click)="onDelete(student.jmbag)">Delete</button></td>
   </tr>
   </tbody>
 </table>
+
+
+<form class="w-50 bg-light shadow-sm p-3" (ngSubmit)="onSubmit(firstName.value, lastName.value, jmbag.value, ects.value)">
+  <div class="mb-3">
+    <label for="first_name" class="form-label">First name</label>
+    <input type="text" placeholder="Ivan" class="form-control" id="first_name" #firstName>
+  </div>
+
+  <div class="mb-3">
+    <label for="last_name" class="form-label">Last name</label>
+    <input type="text" placeholder="Horvat" class="form-control" id="last_name" #lastName>
+  </div>
+
+  <div class="mb-3">
+    <label for="jmbag" class="form-label">JMBAG</label>
+    <input type="text" placeholder="0246090000" class="form-control" id="jmbag" #jmbag>
+  </div>
+
+  <div class="mb-3">
+    <label for="ects" class="form-label">ECTS</label>
+    <input type="number" placeholder="60" class="form-control" id="ects" #ects>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add student</button>
+</form>
+
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  {{errorMessage}}
+</div>
+
+
