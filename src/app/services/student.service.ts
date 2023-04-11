@@ -29,6 +29,11 @@ export class StudentService {
     return this.httpClient.get<StudentDTO>(`${this.apiUrl}/student/${jmbag}`);
   }
 
+  deleteStudent(jmbag: string): Observable<void>{
+    return this.httpClient.delete<void>(`${this.apiUrl}/student/${jmbag}`);
+
+  }
+
   addStudent(firstName: string, lastName: string, jmbag: string, ects: number) {
 
     const student: Student = {

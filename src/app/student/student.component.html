@@ -15,7 +15,7 @@
     <td>{{studentIndex}}</td>
     <td>{{student.jmbag}}</td>
     <td>{{student.numberOfECTS}}</td>
-    <td><button class="btn btn-danger" (click)="onDelete(student.jmbag)">Delete</button></td>
+    <td><button class="btn btn-danger" (click)="onDelete(student.jmbag, $event)">Delete</button></td>
   </tr>
   </tbody>
 </table>

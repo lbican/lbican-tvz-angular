@@ -35,8 +35,9 @@ export class StudentComponent implements OnInit{
       });
   }
 
-  onDelete(jmbag: string){
-    console.log(jmbag);
+  onDelete(jmbag: string, event: Event){
+    event.stopPropagation();
+    this.studentService.deleteStudent(jmbag).subscribe(() => { this.getStudents().catch((err) => console.error(err)) })
   }
 
   async getStudents(): Promise<void> {
