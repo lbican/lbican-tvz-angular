@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {StudentDTO} from "../models/studentDTO";
+import {Component, OnInit} from '@angular/core';
+import {StudentDTO} from "../models/student";
 import {ActivatedRoute} from "@angular/router";
 import {StudentService} from "../services/student.service";
+import {CourseDTO} from "../models/course";
 
 @Component({
   selector: 'app-student-details',
@@ -9,6 +10,7 @@ import {StudentService} from "../services/student.service";
 })
 export class StudentDetailsComponent implements OnInit{
   student: StudentDTO | undefined;
+  courses: CourseDTO[] | undefined;
 
   constructor(private route: ActivatedRoute, private studentService: StudentService) { }
 
@@ -19,6 +21,13 @@ export class StudentDetailsComponent implements OnInit{
         this.student = student;
       }
     })
+
+    this.studentService.getStudentCourses(jmbag).subscribe((courses) => {
+      if(courses){
+        this.courses = courses;
+      }
+    })
+
   }
 
 }

@@ -5,3 +5,9 @@
   <div *ngIf="student.tuitionShouldBePaid"> Student treba platiti školarinu. </div>
   <a href="/students" class="btn btn-primary my-2">Go back</a>
 </div>
+<h3>Student courses</h3>
+<div *ngIf="courses">
+  <ul *ngFor="let course of courses">
+    <li>{{course.name}} | {{course.numberOfECTS}} ECTS</li>
+  </ul>
+</div>

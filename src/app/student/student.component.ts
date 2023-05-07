@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {StudentDTO} from "../models/studentDTO";
+import {StudentDTO} from "../models/student";
 import {StudentService} from "../services/student.service";
 import {catchError, lastValueFrom, tap, throwError} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";

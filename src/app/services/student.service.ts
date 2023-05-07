@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
-import {Student, StudentDTO} from "../models/studentDTO";
+import {Student, StudentDTO} from "../models/student";
 import { environment } from "../../environments/env.dev";
 import {HttpClient} from "@angular/common/http";
 import {DatePipe} from "@angular/common";
+import {CourseDTO} from "../models/course";
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +30,12 @@ export class StudentService {
     return this.httpClient.get<StudentDTO>(`${this.apiUrl}/student/${jmbag}`);
   }
 
+  getStudentCourses(jmbag: string): Observable<CourseDTO[] | undefined>{
+    return this.httpClient.get<CourseDTO[]>(`${this.apiUrl}/course/${jmbag}`);
+  }
+
   deleteStudent(jmbag: string): Observable<void>{
     return this.httpClient.delete<void>(`${this.apiUrl}/student/${jmbag}`);
-
   }
 
   addStudent(firstName: string, lastName: string, jmbag: string, ects: number) {
